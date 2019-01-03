@@ -1,0 +1,27 @@
+html,
+body,
+header,
+#intro {
+    height: 100%;
+}
+
+#intro {
+    background: url("../../img/Sunset.jpg") no-repeat center center fixed;
+    background-attachment: fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+.required{
+    color: red;
+}
+.form-control:focus {
+   border-bottom-color:#4FB3BF;
+}
+label{
+    color: #4FB3BF;
+}
+.bg {
+    background: url("../../img/Sunset.jpg");
+}
