@@ -19,16 +19,16 @@
             </div>
             <div class="modal-body mx-3" id="id_form">
                     <div class="md-form mb-5">
-                        <input type="text" id="id_name" class="form-control validate">
+                        <input type="text" id="name" class="form-control validate">
                         <label data-error="wrong" data-success="right" for="id_name">Your Name</label>
                     </div>
 
                     <div class="md-form mb-4">
-                        <input type="email" id="id_email" class="form-control validate">
+                        <input type="email" id="email" class="form-control validate">
                         <label data-error="wrong" data-success="right" for="id_email">Your Email</label>
                     </div>
                     <div class="md-form mb-4">
-                        <textarea id="id_idea" class="md-textarea form-control"></textarea>
+                        <textarea id="idea" class="md-textarea form-control"></textarea>
                         <label for="id_idea">Idea</label>
                     </div>
                     <div class="modal-footer d-flex justify-content-center">

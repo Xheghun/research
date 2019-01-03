@@ -31,8 +31,10 @@ function info($info) {
     $msg = <<<IO
     <div class="alert alert-primary black-text alert-dismissible fade show p-3" role="alert">
         <strong>{$info}</strong>
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close"></button>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
         <span aria-hidden="true">&times;</span>
+</button>
+        
     </div>
 IO;
     return $msg;
