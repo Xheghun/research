@@ -17,7 +17,9 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="modal-body mx-3" id="id_form">
+            <div class="modal-body mx-3" >
+                <div class="text-center" id="id_form">
+                </div>
                     <div class="md-form mb-5">
                         <input type="text" id="name" class="form-control validate">
                         <label data-error="wrong" data-success="right" for="id_name">Your Name</label>
