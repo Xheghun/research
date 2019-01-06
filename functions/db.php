@@ -16,4 +16,11 @@ function confirm($result) {
         die("Query Failed ".mysqli_error($con));
     }
 }
-?>
+
+function row_count($result) {
+        return mysqli_num_rows($result);
+}
+
+function fetch_array($result) {
+        return mysqli_fetch_array($result);
+}

@@ -10,6 +10,7 @@ function idea_form() {
     i_xhr.onreadystatechange = function () {
         if (i_xhr.readyState < 4) {
             console.log("Please wait...");
+            target.innerHTML = "Please Wait...";
         }
         if (i_xhr.readyState === 4 && i_xhr.status === 200) {
             target.innerHTML = i_xhr.responseText;

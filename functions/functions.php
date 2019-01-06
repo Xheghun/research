@@ -64,3 +64,40 @@ function p_form() {
             }
         }
 }
+
+function login() {
+    if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
+        $email = filter_input(INPUT_POST,"email",FILTER_SANITIZE_EMAIL);
+        $password = filter_input(INPUT_POST,"password",FILTER_SANITIZE_SPECIAL_CHARS);
+        $remember_me = filter_input(INPUT_POST,"remember_me",FILTER_SANITIZE_SPECIAL_CHARS);
+        if (empty($email)) {
+            set_message("name field is required");
+            //redirect("login.php");
+        }elseif (empty($password)) {
+            set_message("password field is required");
+           // redirect("login.php");
+        }else {
+            $sql = "SELECT password FROM admins WHERE email = '$email' AND valid = 1";
+            $result = query_db($sql);
+            if (row_count($result) == 1) {
+                $row = fetch_array($result);
+                $pass = $row['password'];
+                if (password_verify($password, $pass)) {
+                    if ($remember_me == "on") {
+                        setcookie("projectx_email", $email, time() + 86400 * 30);
+                    }
+                    $_SESSION['projectx_email'] = $email;
+                    redirect("admin/");
+                } else {
+                    set_message("username or password is incorrect");
+                }
+            }
+        }
+    }
+}
+
+function keep_user() {
+    if (isset($_SESSION['projectx_email']) || isset($_COOKIE['projectx_email'])) {
+        redirect("admin/");
+    }
+}

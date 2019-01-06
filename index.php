@@ -24,7 +24,7 @@
                     <hr class="hr-light" />
 
                     <h4 class="white-text my-2">
-                        By: void
+
                     </h4>
                 </div>
             </div>
@@ -68,7 +68,7 @@
                     <h4 class="my-4 font-weight-normal">Motive</h4>
                     <p>
                         Technology plays a vital role in today's generation, with infinite amount of problems still yet
-                        to solve though technology ProjectX is a research project that is focused on identifying these problems
+                        to be solved though technology ProjectX is a research project that is focused on identifying these problems
                         and solving as many as possible.
                     </p>
                 </div>

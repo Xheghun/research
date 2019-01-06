@@ -34,11 +34,13 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#contact">Contact</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="login.php">Login</a>
+                </li>
             </ul>
             <!-- Links -->
         </div>
         <!-- Collapsible content -->
-
     </div>
 
 
