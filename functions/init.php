@@ -7,5 +7,8 @@ session_start();
  * Time: 09:39 PM
  */
 
+
+//require_once ("../vendor/phpmailer/phpmailer/src/Exception.php");
+//require_once ("../vendor/phpmailer/phpmailer/src/PHPMailer.php");
 require "db.php";
 require "functions.php";

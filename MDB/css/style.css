@@ -1,6 +1,5 @@
 html,
 body,
-header,
 #intro {
     height: 100%;
 }
@@ -24,4 +23,32 @@ label{
 }
 .bg {
     background: url("../../img/Sunset.jpg");
+}
+
+.round-corner {
+    border-radius: 100%;
+}
+
+.side-nav > a {
+    color: #FFFFFF;
+}
+
+.side-nav {
+    width: inherit;
+    list-style-type: none;
+}
+
+.side-nav:hover {
+    background-color: #0c5460;
+    border-radius: 4px;
+    opacity: 0.5;
+}
+
+.active {
+    background-color: green;
+    border-radius: 4px;
+}
+
+.t-row > th {
+    font-weight: bold;
 }

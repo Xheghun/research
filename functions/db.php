@@ -24,3 +24,8 @@ function row_count($result) {
 function fetch_array($result) {
         return mysqli_fetch_array($result);
 }
+
+function pull_data($result)
+{
+    return mysqli_fetch_assoc($result);
+}
