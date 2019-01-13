@@ -3,12 +3,14 @@
 <head>
     <?php
     include "includes/head.php";
+    require "functions/Mail.php";
 
 
     if (!is_logged_in()) {
         redirect("../login.php");
     }
-    contact();
+    $mail = new Mail();
+    $mail->contact();
     $title = base64_decode(filter_input(INPUT_GET, "title", FILTER_SANITIZE_SPECIAL_CHARS));
     $id = base64_decode(filter_input(INPUT_GET, "id", FILTER_SANITIZE_SPECIAL_CHARS));
     $email = base64_decode(filter_input(INPUT_GET, "email", FILTER_SANITIZE_EMAIL));
@@ -33,12 +35,10 @@
                                     class="fa fa-dashboard mr-1"></i>Dashboard</a></li>
                     <li class="active side-nav nav-item">
                         <a class="nav-link" href="problems.php"><i class="fa fa-"></i>Problems
-                            <span style="border-radius: 100%;"
-                                  class="p-1 red"><?php echo row_nums("problems"); ?></span></a>
+                            <span class="balloon red"><?php echo row_nums("problems"); ?></span></a>
                     </li>
                     <li class="side-nav nav-item"><a class="nav-link" href="ideas.php">Ideas
-                            <span style="border-radius: 100%;"
-                                  class="p-1 red"><?php echo row_nums("ideas"); ?></span></a>
+                            <span class="balloon red"><?php echo row_nums("ideas"); ?></span></a>
                         </a></li>
                     <li class="side-nav nav-item"><a class="nav-link" href="#"><i
                                     class="fa fa-user mr-1"></i>Contacts</a></li>
@@ -80,7 +80,7 @@
                                 <span class="input-group-text" id="attach">Attach File</span>
                             </div>
                             <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="file" aria-describedby="file">
+                                <input disabled type="file" class="custom-file-input" id="file" aria-describedby="file">
                                 <label class="custom-file-label" for="file">Choose file</label>
                             </div>
                         </div>

@@ -8,7 +8,7 @@ session_start();
  */
 
 
-//require_once ("../vendor/phpmailer/phpmailer/src/Exception.php");
-//require_once ("../vendor/phpmailer/phpmailer/src/PHPMailer.php");
+//
+require_once "vendor/autoload.php";
 require "db.php";
 require "functions.php";

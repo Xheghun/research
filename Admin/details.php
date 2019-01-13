@@ -6,7 +6,6 @@
     if (!is_logged_in()) {
         redirect("../login.php");
     }
-    contact();
     $title = base64_decode(filter_input(INPUT_GET, "title", FILTER_SANITIZE_SPECIAL_CHARS));
     $id = base64_decode(filter_input(INPUT_GET, "id", FILTER_SANITIZE_SPECIAL_CHARS));
     $email = base64_decode(filter_input(INPUT_GET, "email", FILTER_SANITIZE_EMAIL));
@@ -31,9 +30,10 @@
                                     class="fa fa-dashboard mr-1"></i>Dashboard</a></li>
                     <li class="active side-nav nav-item">
                         <a class="nav-link" href="problems.php"><i class="fa fa-"></i>Problems
-                            <span style="border-radius: 100%;" class="p-1 red"><?php echo row_nums(); ?></span></a>
+                            <span class="red balloon"><?php echo row_nums("problems"); ?></span></a>
                     </li>
-                    <li class="side-nav nav-item"><a class="nav-link" href="#">Ideas</a></li>
+                    <li class="side-nav nav-item"><a class="nav-link" href="#">Ideas
+                            <span class="red balloon"><?php echo row_nums("ideas") ?></span></a></li>
                     <li class="side-nav nav-item"><a class="nav-link" href="#"><i
                                     class="fa fa-user mr-1"></i>Contacts</a></li>
                     <li class="side-nav nav-item"><a class="nav-link" href="logout.php"><i
