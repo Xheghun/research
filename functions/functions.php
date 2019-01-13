@@ -79,7 +79,7 @@ function p_form() {
             } else {
                 $reviewed = "no";
                 $time = strftime("%B-%M-%Y %H:%M:%S", time());
-                $sql = "INSERT INTO problems (client_name,email,problem_title,problem_desc,solution,time_added,reviewed)
+                $sql = "INSERT INTO problems (name,email,title,escription,solution,time_added,reviewed)
                   VALUES ('$name','$email','$problemTitle','$problem','$solution','$time','$reviewed')";
                 $result = query_db($sql);
                 confirm($result);
@@ -180,9 +180,9 @@ function get_problems($type)
     return $result;
 }
 
-function row_nums()
+function row_nums($table_name)
 {
-    $sql = "SELECT * FROM problems WHERE reviewed = 'no'";
+    $sql = "SELECT * FROM $table_name WHERE reviewed = 'no'";
     $result = query_db($sql);
     $nums = row_count($result);
 
@@ -228,7 +228,7 @@ function send_mail($to, $cc, $bcc, $subject, $body)
         $mail->SMTPSecure = 'tls';
         $mail->SMTPAuth = true;                               // Enable SMTP authentication
         $mail->Username = "rowtiantech@gmail.com";                 // SMTP username
-        $mail->Password = "PASSWORD.$";                           // SMTP password
+        $mail->Password = "rowtian.1$";                           // SMTP password
         // Enable TLS encryption, `ssl` also accepted
         // TCP port to connect to
 
@@ -266,4 +266,15 @@ function send_mail($to, $cc, $bcc, $subject, $body)
         echo 'Message could not be sent. Mailer Error: ', $mail->ErrorInfo;
     }
     return true;
+}
+
+function get_info($table_name)
+{
+    $id = base64_decode(filter_input(INPUT_GET, "id", FILTER_SANITIZE_SPECIAL_CHARS));
+    $title = base64_decode(filter_input(INPUT_GET, "title", FILTER_SANITIZE_SPECIAL_CHARS));
+
+    $sql = "SELECT * FROM $table_name WHERE p_id = '$id' and  title = '$title'";
+    $result = query_db($sql);
+
+    return $result;
 }

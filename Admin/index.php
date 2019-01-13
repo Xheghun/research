@@ -23,11 +23,16 @@
                 </div>
                 <hr class="m-1"/>
                 <ul class="nav-pills container-fluid">
-                    <li class="active side-nav nav-item"><a href="../Admin" class="nav-link">Dashboard</a></li>
+                    <li class="active active-link side-nav nav-item"><a href="../Admin" class="nav-link">Dashboard</a>
+                    </li>
                     <li class="side-nav nav-item"><a class="nav-link" href="problems.php">Problems
-                            <span style="border-radius: 100%;" class="p-1 red"><?php echo row_nums(); ?></span>
+                            <span style="border-radius: 100%;"
+                                  class="p-1 red"><?php echo row_nums("problems"); ?></span>
                         </a></li>
-                    <li class="side-nav nav-item"><a class="nav-link" href="#">Ideas</a></li>
+                    <li class="side-nav nav-item"><a class="nav-link" href="ideas.php">Ideas
+                            <span style="border-radius: 100%;"
+                                  class="p-1 red"><?php echo row_nums("ideas"); ?></span></a>
+                        </a></li>
                     <li class="side-nav nav-item"><a class="nav-link" href="#">Contacts</a></li>
                     <li class="side-nav nav-item"><a class="nav-link" href="logout.php"><i class="fa fa-door-open"></i>Logout</a>
                     </li>

@@ -3,19 +3,21 @@
 <head>
     <?php
     include "includes/head.php";
+
+
     if (!is_logged_in()) {
         redirect("../login.php");
     }
     contact();
-    $title = filter_input(INPUT_GET, "title", FILTER_SANITIZE_SPECIAL_CHARS);
-    $id = filter_input(INPUT_GET, "id", FILTER_SANITIZE_SPECIAL_CHARS);
-    $email = filter_input(INPUT_GET, "email", FILTER_SANITIZE_EMAIL);
+    $title = base64_decode(filter_input(INPUT_GET, "title", FILTER_SANITIZE_SPECIAL_CHARS));
+    $id = base64_decode(filter_input(INPUT_GET, "id", FILTER_SANITIZE_SPECIAL_CHARS));
+    $email = base64_decode(filter_input(INPUT_GET, "email", FILTER_SANITIZE_EMAIL));
     ?>
 </head>
 <body>
 <div class="container-fluid p-3">
     <div class="row">
-        <div class="col-md-2 card stylish-color-dark">
+        <div class="col-md-3 card stylish-color-dark">
             <div class="">
                 <div class="left">
                     <a href="#"><h2 class="font-weight-bold text-md-left white-text p-3">ProjectX</h2></a>
@@ -27,19 +29,26 @@
                 </div>
                 <hr class="m-1"/>
                 <ul class="nav-pills container-fluid">
-                    <li class="side-nav nav-item"><a href="../Admin" class="nav-link">Dashboard</a></li>
+                    <li class="side-nav nav-item"><a href="../Admin" class="nav-link"><i
+                                    class="fa fa-dashboard mr-1"></i>Dashboard</a></li>
                     <li class="active side-nav nav-item">
-                        <a class="nav-link" href="problems.php">Problems
-                            <span style="border-radius: 100%;" class="p-1 red"><?php echo row_nums(); ?></span></a>
+                        <a class="nav-link" href="problems.php"><i class="fa fa-"></i>Problems
+                            <span style="border-radius: 100%;"
+                                  class="p-1 red"><?php echo row_nums("problems"); ?></span></a>
                     </li>
-                    <li class="side-nav nav-item"><a class="nav-link" href="#">Ideas</a></li>
-                    <li class="side-nav nav-item"><a class="nav-link" href="#">Contacts</a></li>
-                    <li class="side-nav nav-item"><a class="nav-link" href="logout.php"><i class="fa fa-door-open"></i>Logout</a>
+                    <li class="side-nav nav-item"><a class="nav-link" href="ideas.php">Ideas
+                            <span style="border-radius: 100%;"
+                                  class="p-1 red"><?php echo row_nums("ideas"); ?></span></a>
+                        </a></li>
+                    <li class="side-nav nav-item"><a class="nav-link" href="#"><i
+                                    class="fa fa-user mr-1"></i>Contacts</a></li>
+                    <li class="side-nav nav-item"><a class="nav-link" href="logout.php"><i
+                                    class="fa fa-door-open mr-1"></i>Logout</a>
                     </li>
                 </ul>
             </div>
         </div>
-        <div class="col-md-10">
+        <div class="col-md-9">
             <div class="card p-3">
                 <div class="card-title">
                     <h2 class="font-weight-normal flex-center">IO Mail</h2>
@@ -50,15 +59,13 @@
                     <form method="post" class="border border-light mr-lg-5 ml-lg-5 p-5">
                         <!-- To -->
                         <label class="" for="to">To:</label>
-                        <input name="to" type="text" id="to" class="form-control mb-4" value="<?php echo $email; ?>"
+                        <input name="to" type="text" id="to" class="form-control mb-4"
+                               value="<?php if (isset($email)) echo $email; ?>"
                                placeholder="To:">
-
-
                         <!-- Subject -->
                         <label for="subject">Subject:</label>
                         <input type="text" name="subject" id="subject" class="form-control mb-4"
-                               value="RE:<?php echo $title; ?>" placeholder="Subject:">
-
+                               value="RE:<?php if (isset($title)) echo $title; ?>" placeholder="Subject:">
                         <!-- Cc:-->
                         <label for="Cc">Cc:</label>
                         <input type="text" id="Cc" name="cc" placeholder="Cc recipient" class="form-control mb-4">
@@ -77,10 +84,9 @@
                                 <label class="custom-file-label" for="file">Choose file</label>
                             </div>
                         </div>
-
                         <label class="mt-4" for="body">Body:</label>
-                        <textarea id="body" name="body" placeholder="mail content" class="form-control mb-4"></textarea>
-
+                        <textarea id="body" rows="6" name="body" placeholder="mail content"
+                                  class="form-control mb-4"></textarea>
                         <div class="d-flex justify-content-around">
                         </div>
                         <!-- Sign in button -->

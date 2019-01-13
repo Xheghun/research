@@ -44,11 +44,16 @@ label{
     opacity: 0.5;
 }
 
-.active {
+.active-link {
     background-color: green;
     border-radius: 4px;
 }
 
 .t-row > th {
     font-weight: bold;
+}
+
+.option-radius {
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
 }
